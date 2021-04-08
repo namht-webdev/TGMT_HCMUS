@@ -1,6 +1,6 @@
-#include"Convolution.h"
+﻿#include"Convolution.h"
 
-
+// row, col là tham số của phần tính từ row col trở đi bằng với kích thước bộ lọc
 uchar Convolution::doConvolution(Mat& srcImage, float G[][3], int row, int col) {
 	
 	float s = 0;
@@ -11,5 +11,5 @@ uchar Convolution::doConvolution(Mat& srcImage, float G[][3], int row, int col) 
 			s += (float)srcImage.at<uchar>(i, j) * G[k][l];
 		}
 	}
-	return saturate_cast<uchar>(s);
+	return saturate_cast<uchar>(abs(s));
 }
